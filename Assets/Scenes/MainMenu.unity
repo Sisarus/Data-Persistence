@@ -620,7 +620,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 250037984}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2008701732}
+        m_TargetAssemblyTypeName: MainUIHandler, Assembly-CSharp
+        m_MethodName: Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &250037984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,7 +753,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 367108651}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2008701732}
+        m_TargetAssemblyTypeName: MainUIHandler, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &367108651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1607,6 +1631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: 
   hightScore: 0
+  playerNameHight: 
 --- !u!4 &1527656208
 Transform:
   m_ObjectHideFlags: 0

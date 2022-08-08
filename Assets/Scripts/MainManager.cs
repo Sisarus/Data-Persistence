@@ -8,6 +8,7 @@ public class MainManager : MonoBehaviour {
     public static MainManager Instance;
     public string playerName;
     public int hightScore;
+    public string playerNameHight;
 
     private void Awake () {
         // start of new code
@@ -24,17 +25,19 @@ public class MainManager : MonoBehaviour {
     [System.Serializable]
     class SaveData {
         public int hightScore;
-        public string playerName;
+        public string playerNameHight;
     }
 
     public void SaveHighScore () {
         SaveData data = new SaveData ();
         data.hightScore = hightScore;
-        data.playerName = playerName;
+        data.playerNameHight = playerName;
 
         string json = JsonUtility.ToJson (data);
 
         File.WriteAllText (Application.persistentDataPath + "/savefile.json", json);
+        Debug.Log ("Data saved");
+        playerNameHight = playerName;
     }
 
     public void LoadHighScore () {
@@ -43,9 +46,10 @@ public class MainManager : MonoBehaviour {
             string json = File.ReadAllText (path);
             SaveData data = JsonUtility.FromJson<SaveData> (json);
 
-            playerName = data.playerName;
+            playerNameHight = data.playerNameHight;
             hightScore = data.hightScore;
         }
+        Debug.Log ("Data load");
     }
 
 }
