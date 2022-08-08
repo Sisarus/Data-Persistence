@@ -56,6 +56,7 @@ public class GameBehavior : MonoBehaviour {
     }
 
     public void GameOver () {
+        MainManager.Instance.UpdateHighScoreList (m_Points);
         m_GameOver = true;
         GameOverText.SetActive (true);
     }

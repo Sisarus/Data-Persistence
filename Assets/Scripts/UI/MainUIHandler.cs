@@ -12,17 +12,24 @@ public class MainUIHandler : MonoBehaviour {
     private string playerName;
 
     void Start () {
-        bestPlayerText.SetText ("Best Score: " + MainManager.Instance.playerNameHight + " " + MainManager.Instance.hightScore);
+        if (MainManager.Instance.HighScore != null) {
+            bestPlayerText.SetText ("Best Score: " + MainManager.Instance.HighScore.playerName + " " + MainManager.Instance.HighScore.score);
+        } else {
+            bestPlayerText.SetText ("Lets play!");
+        }
+
     }
 
     public void StartGame () {
-        MainManager.Instance.playerName = playerName;
         SceneManager.LoadScene (1);
     }
 
+    public void LoadHighScoreScene () {
+        SceneManager.LoadScene (2);
+    }
+
     public void ReadStringInput (string inputText) {
-        playerName = inputText;
-        Debug.Log (inputText);
+        MainManager.Instance.playerName = inputText;
     }
 
     public void Exit () {

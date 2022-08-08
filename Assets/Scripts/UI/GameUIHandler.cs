@@ -22,18 +22,19 @@ public class GameUIHandler : MonoBehaviour {
         scoreText.SetText (playerName + " Score : " + gameBehavior.m_Points);
 
         if (gameBehavior.m_GameOver) {
-            if (gameBehavior.m_Points > hightScore) {
-                MainManager.Instance.hightScore = gameBehavior.m_Points;
-                MainManager.Instance.SaveHighScore ();
-                LoadBestScore ();
-            }
+            LoadBestScore ();
         }
     }
 
     private void LoadBestScore () {
-        bestPlayerText = MainManager.Instance.playerNameHight;
-        hightScore = MainManager.Instance.hightScore;
-        bestScoreText.SetText ("Best Socre : " + bestPlayerText + " : " + hightScore);
+        if (MainManager.Instance.HighScore != null) {
+            bestPlayerText = MainManager.Instance.HighScore.playerName;
+            hightScore = MainManager.Instance.HighScore.score;
+            bestScoreText.SetText ("Best Score: " + MainManager.Instance.HighScore.playerName + " " + MainManager.Instance.HighScore.score);
+        } else {
+            bestScoreText.SetText ("Best Score:  ");
+        }
+
     }
 
 }
