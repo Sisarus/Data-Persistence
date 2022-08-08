@@ -9,15 +9,17 @@ public class GameUIHandler : MonoBehaviour {
     public TextMeshProUGUI scoreText;
     private string bestPlayerText;
     private int hightScore;
+    private string playerName;
     public GameBehavior gameBehavior;
     // Start is called before the first frame update
     void Start () {
+        playerName = MainManager.Instance.playerName;
         LoadBestScore ();
     }
 
     // Update is called once per frame
     void Update () {
-        scoreText.SetText ("Score : " + gameBehavior.m_Points);
+        scoreText.SetText (playerName + " Score : " + gameBehavior.m_Points);
 
         if (gameBehavior.m_GameOver) {
             if (gameBehavior.m_Points > hightScore) {
